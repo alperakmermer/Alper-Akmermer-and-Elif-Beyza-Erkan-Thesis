@@ -1,14 +1,14 @@
-Ts = 10e-6; % örnekleme periyodu 10 us, fs=100KHz
+Ts = 10e-6; % Ã¶rnekleme periyodu 10 us, fs=100KHz
 fNy = 1 / Ts / 2; % Nyquist frekans?
-ns = 1002; % dizideki örnek sayýsý  1000 yerine 1002 hem 3 hem 2 faz için 
-nf = 10; % dizide kaç farklý frekansta iþaret olacaðý
+ns = 1002; % dizideki Ã¶rnek sayÃ½sÃ½  1000 yerine 1002 hem 3 hem 2 faz iÃ§in 
+nf = 10; % dizide kaÃ§ farklÃ½ frekansta iÃ¾aret olacaÃ°Ã½
 % cutoff 20khz _
 
 h=[-0.03125,0.046875,0.015625,-0.140625,0.140625,0.46875,0.46875,0.140625,-0.140625,0.015625,0.046875,-0.03125];
 %h = [0.0313,0.0625,-0.0625,-0.0938,0.1563,0.4375,0.4375,0.1563,-0.0938,-0.0625,0.0625,0.0313] ;
 
 for i = 1:ns
-freq(i) = (fNy/ns) * round(i/ns*nf)*ns/nf; % örneklerin frekansý
+freq(i) = (fNy/ns) * round(i/ns*nf)*ns/nf; % Ã¶rneklerin frekansÃ½
 end
 
 for i = 1:ns
@@ -256,7 +256,7 @@ y_5 = conv (hi5,hf5);
 y_6 = conv (hi6,hf6);
 
 %Delays
-temp0 = y_6 - y_3 + y_2 - y_1 - y_5 ; 
+temp0 = y_6 - 2*y_3 + y_2 - y_1 - y_5 ; 
 temp1 = y_3+ y_4 - y_1 - y_2 + y_5 ;
 delay_for_y0 = delayseq(temp0,1) ;
 delay_for_y1 = delayseq(temp1,1) ;
